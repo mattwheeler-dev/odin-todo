@@ -1,0 +1,153 @@
+/* GOOGLE FONT IMPORT [RALEWAY: 200, 300, 400, 500] */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap");
+
+/* VARIABLES */
+:root {
+	--primary: #ff0077;
+	--border: 2px solid var(--primary);
+	--shadow: 0 0 1rem #000;
+	--glow: 0 0 1rem var(--primary);
+}
+
+/* DEFAULTS */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Raleway", Arial, Helvetica, sans-serif;
+}
+
+/* DISPLAY: FLEX */
+body,
+header,
+main,
+.todo {
+	display: flex;
+}
+
+body {
+	height: fit-content;
+	width: 100vw;
+	color: #fff;
+	background-color: #303030;
+	overflow-x: hidden;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* HEADER */
+header,
+#mode-toggle {
+	display: grid;
+	place-content: center;
+	position: fixed;
+}
+
+header {
+	height: 5rem;
+	width: 100%;
+	background-color: #202020;
+	border-bottom: var(--border);
+	box-shadow: var(--shadow);
+	top: 0;
+	left: 0;
+}
+
+#mode-toggle {
+	height: 3rem;
+	width: 3rem;
+	font-size: 1.5rem;
+	border: var(--border);
+	border-radius: 50%;
+	top: 1rem;
+	right: 2rem;
+	transition: all 0.5s linear;
+}
+
+#mode-toggle:hover {
+	cursor: pointer;
+	background-color: #000;
+	box-shadow: var(--glow);
+	transform: scale(1.2) rotateZ(360deg);
+}
+
+#light {
+	color: var(--primary);
+}
+
+#moon {
+	display: none;
+}
+
+/* MAIN & SECTIONS */
+main {
+	width: 100%;
+	margin-top: 5rem;
+	justify-content: space-between;
+}
+
+section {
+	height: 100vh;
+}
+
+h2 {
+	width: 100%;
+	text-align: center;
+	margin: 2rem 0;
+}
+
+/* PROJECTS & TODOS SHARED STYLES */
+.project,
+.todo {
+	width: 100%;
+	margin: 1.5rem auto;
+	padding-bottom: 0.25rem;
+	border-bottom: 1px solid var(--primary);
+	justify-content: space-between;
+}
+
+/* PROJECTS SECTION */
+#projects-container {
+	width: 30%;
+	border-right: var(--border);
+}
+
+#projects-list {
+	width: 70%;
+	margin: 0 auto;
+	list-style-type: "// ";
+}
+
+.project.active {
+	font-size: 1.2rem;
+	color: var(--primary);
+}
+
+/* TODOS SECTION */
+#todo-list-container {
+	width: 65%;
+}
+
+#todo-list {
+	height: fit-content;
+	min-height: 15rem;
+	width: 80%;
+	margin: 0 auto;
+	padding: 1rem 2rem;
+	border: var(--border);
+	border-radius: 15px;
+	box-shadow: var(--shadow);
+	list-style-type: none;
+}
+
+.completed {
+	text-decoration: line-through;
+	text-decoration-style: wavy;
+	text-decoration-color: var(--primary);
+}
+
+.todo i:hover {
+	cursor: pointer;
+	color: var(--primary);
+	text-shadow: var(--glow);
+}

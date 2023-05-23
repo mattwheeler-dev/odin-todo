@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- LINK STYLESHEET -->
+		<link rel="stylesheet" href="styles.css" />
+		<!-- LINK & DEFER SCRIPTS -->
+		<script src="main.js"></script>
+		<!-- LINK & DEFER FONT AWESOME -->
+		<script
+			src="https://kit.fontawesome.com/1e723eb9a7.js"
+			crossorigin="anonymous"
+			defer
+		></script>
+		<title>OdinProject | ToDo List</title>
+	</head>
+	<body>
+		<header>
+			<h1>Odin's ToDos</h1>
+			<div id="mode-toggle">
+				<i id="light" class="fa-regular fa-lightbulb"></i>
+				<i id="moon" class="fa-solid fa-moon"></i>
+			</div>
+		</header>
+		<main>
+			<section id="projects-container">
+				<h2>Projects</h2>
+				<ul id="projects-list">
+					<li class="project active">Default Project</li>
+					<li class="project">Different Project</li>
+				</ul>
+			</section>
+			<section id="todo-list-container">
+				<h2>Default Project</h2>
+				<ul id="todo-list">
+					<li class="todo">
+						<input type="checkbox" />
+						<span> This is ToDo 1 </span>
+						<i class="fa-solid fa-trash-can"></i>
+					</li>
+
+					<li class="todo">
+						<input type="checkbox" />
+						<span> This is ToDo 2 </span>
+						<i class="fa-solid fa-trash-can"></i>
+					</li>
+
+					<li class="todo">
+						<input type="checkbox" />
+						<span class="completed"> This is ToDo 3 </span>
+						<i class="fa-solid fa-trash-can"></i>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
