@@ -17,44 +17,79 @@
 		<title>OdinProject | ToDo List</title>
 	</head>
 	<body>
+		<!-- MENU TOGGLE -->
+		<button id="menu-toggle">
+			<i class="fa-solid fa-bars-staggered"></i>
+		</button>
+
 		<header>
-			<h1>Odin's ToDos</h1>
-			<div id="mode-toggle" title="Toggle light / dark modes">
-				<i id="light" class="fa-regular fa-lightbulb"></i>
-				<i id="moon" class="fa-solid fa-moon"></i>
-			</div>
+			<h1>
+				<i class="fa-regular fa-square-check"></i>
+				Odin's ToDos
+			</h1>
 		</header>
+
 		<main>
+			<!-- PROJECTS SECTION -->
 			<section id="projects-container">
 				<h2>Projects</h2>
 				<ul id="projects-list">
 					<li class="project active">Default Project</li>
 					<li class="project">Different Project</li>
 				</ul>
-				<button id="new-project-btn">Add Project</button>
+
+				<button id="new-project-btn">
+					<i class="fa-solid fa-plus"></i>
+					Add Project
+				</button>
+
+				<!-- NEW PROJECT POP UP -->
+				<div id="new-project-popup">
+					<input
+						id="new-project-name"
+						type="text"
+						placeholder="Enter Project Name"
+					/>
+					<button id="confirm-new-project">Confirm</button>
+					<button id="cancel-new-project">Cancel</button>
+				</div>
 			</section>
+
+			<!-- TODO LIST SECTION -->
 			<section id="todo-list-container">
 				<h2>Default Project</h2>
 				<ul id="todo-list">
 					<li class="todo">
 						<input type="checkbox" />
 						<span> This is ToDo 1 </span>
-						<i class="fa-solid fa-trash-can"></i>
+						<div class="todo-btns">
+							<i class="fa-solid fa-pen-to-square edit-todo-btn"></i>
+							<i class="fa-solid fa-trash-can"></i>
+						</div>
 					</li>
 
 					<li class="todo">
 						<input type="checkbox" />
 						<span> This is ToDo 2 </span>
-						<i class="fa-solid fa-trash-can"></i>
+						<div class="todo-btns">
+							<i class="fa-solid fa-pen-to-square edit-todo-btn"></i>
+							<i class="fa-solid fa-trash-can"></i>
+						</div>
 					</li>
 
 					<li class="todo">
 						<input type="checkbox" />
-						<span class="completed"> This is ToDo 3 </span>
-						<i class="fa-solid fa-trash-can"></i>
+						<span> This is ToDo 3 </span>
+						<div class="todo-btns">
+							<i class="fa-solid fa-pen-to-square edit-todo-btn"></i>
+							<i class="fa-solid fa-trash-can"></i>
+						</div>
 					</li>
 				</ul>
-				<button id="new-todo-btn">Add ToDo</button>
+				<button id="new-todo-btn">
+					<i class="fa-solid fa-plus"></i>
+					Add ToDo
+				</button>
 			</section>
 		</main>
 	</body>
