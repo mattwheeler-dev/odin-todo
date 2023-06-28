@@ -33,64 +33,30 @@
 			<!-- PROJECTS SECTION -->
 			<section id="projects-container">
 				<h2>Projects</h2>
-				<ul id="projects-list">
-					<li class="project active">Default Project</li>
-					<li class="project">Different Project</li>
-				</ul>
+				<button id="default-project" class="project-btn">
+					Default Project
+				</button>
+				<div id="projects-list"></div>
 
-				<button id="new-project-btn">
+				<button id="add-project-btn">
 					<i class="fa-solid fa-plus"></i>
 					Add Project
 				</button>
 
 				<!-- NEW PROJECT POP UP -->
-				<div id="new-project-popup">
+				<div id="add-project-popup">
 					<input
 						id="new-project-name"
 						type="text"
 						placeholder="Enter Project Name"
 					/>
-					<button id="confirm-new-project">Confirm</button>
-					<button id="cancel-new-project">Cancel</button>
+					<button id="confirm-add-project">Confirm</button>
+					<button id="cancel-add-project">Cancel</button>
 				</div>
 			</section>
 
 			<!-- TODO LIST SECTION -->
-			<section id="todo-list-container">
-				<h2>Default Project</h2>
-				<ul id="todo-list">
-					<li class="todo">
-						<input type="checkbox" />
-						<span> This is ToDo 1 </span>
-						<div class="todo-btns">
-							<i class="fa-solid fa-pen-to-square edit-todo-btn"></i>
-							<i class="fa-solid fa-trash-can"></i>
-						</div>
-					</li>
-
-					<li class="todo">
-						<input type="checkbox" />
-						<span> This is ToDo 2 </span>
-						<div class="todo-btns">
-							<i class="fa-solid fa-pen-to-square edit-todo-btn"></i>
-							<i class="fa-solid fa-trash-can"></i>
-						</div>
-					</li>
-
-					<li class="todo">
-						<input type="checkbox" />
-						<span> This is ToDo 3 </span>
-						<div class="todo-btns">
-							<i class="fa-solid fa-pen-to-square edit-todo-btn"></i>
-							<i class="fa-solid fa-trash-can"></i>
-						</div>
-					</li>
-				</ul>
-				<button id="new-todo-btn">
-					<i class="fa-solid fa-plus"></i>
-					Add ToDo
-				</button>
-			</section>
+			<section id="list-display"></section>
 		</main>
 	</body>
 </html>
