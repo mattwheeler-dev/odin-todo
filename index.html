@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<!-- LINK STYLESHEET -->
+		<link rel="stylesheet" href="styles.css" />
+		<!-- LINK & DEFER SCRIPT -->
+		<script type="text/javascript" src="main.js" defer></script>
+		<!-- LINK & DEFER FONT AWESOME -->
+		<script
+			src="https://kit.fontawesome.com/1e723eb9a7.js"
+			crossorigin="anonymous"
+			defer
+		></script>
+		<title>OdinProject | ToDoList</title>
+	</head>
+
+	<body>
+		<header>
+			<!-- MENU TOGGLE -->
+			<div class="nav-open">
+				<i class="fa-solid fa-bars-staggered"></i>
+			</div>
+
+			<!-- LOGO -->
+			<h1>
+				<i class="fa-solid fa-square-check"></i>
+				Odin's ToDos
+			</h1>
+		</header>
+
+		<!-- SIDEBAR -->
+		<nav id="sidebar">
+			<!-- NAV CLOSE BTN -->
+			<div class="nav-close">
+				<i class="fa-solid fa-xmark"></i>
+			</div>
+			<!-- GROUPS -->
+			<div id="menu-links">
+				<h2>Groups</h2>
+				<a
+					href="#"
+					class="menu-link active-link"
+					data-link-index="0"
+					data-title="all"
+				>
+					<i
+						class="fa-regular fa-calendar"
+						data-link-index="0"
+						data-title="all"
+						data-icon="fa-calendar"
+					></i>
+					<p class="menu-link-text" data-link-index="0" data-title="all">All</p>
+				</a>
+				<a href="#" class="menu-link" data-link-index="1" data-title="today">
+					<i
+						class="fa-solid fa-calendar-day"
+						data-link-index="1"
+						data-title="today"
+						data-icon="fa-calendar-day"
+					></i>
+					<p class="menu-link-text" data-link-index="1" data-title="today">
+						Today
+					</p>
+				</a>
+				<a href="#" class="menu-link" data-link-index="2" data-title="week">
+					<i
+						class="fa-solid fa-calendar-week"
+						data-link-index="2"
+						data-title="week"
+						data-icon="fa-calendar-week"
+					></i>
+					<p class="menu-link-text" data-link-index="2" data-title="week">
+						Week
+					</p>
+				</a>
+				<a
+					href="#"
+					class="menu-link"
+					data-link-index="3"
+					data-title="completed"
+				>
+					<i
+						class="fa-solid fa-check-double"
+						data-link-index="3"
+						data-title="completed"
+						data-icon="fa-check-double"
+					></i>
+					<p class="menu-link-text" data-link-index="3" data-title="completed">
+						Completed
+					</p>
+				</a>
+			</div>
+
+			<!-- PROJECTS -->
+			<div id="nav-projects">
+				<h2>Projects</h2>
+				<div id="projects-links">
+					<!-- Projects list here -->
+				</div>
+				<button class="add-project-btn">
+					<i class="fa-solid fa-plus"></i>
+					Add Project
+				</button>
+			</div>
+		</nav>
+
+		<!-- MAIN / TODO LIST DISPLAY -->
+		<main>
+			<!-- PROJECT TITLE -->
+			<h1 id="project-title"></h1>
+
+			<!-- TASKS CONTAINER -->
+			<div id="tasks-container">
+				<h2>Tasks</h2>
+				<!-- TASKS LIST -->
+				<div class="tasks-list"></div>
+				<button class="add-task-btn">
+					<i class="fa-solid fa-plus"></i>
+					<span>Add Task</span>
+				</button>
+			</div>
+		</main>
+
+		<!-- MODAL -->
+		<div id="modal-container" class="close hide">
+			<div class="modal">
+				<div id="modal-header">
+					<h2 id="modal-title"></h2>
+					<i class="fa-solid fa-xmark close-modal close"></i>
+				</div>
+				<div class="modal-content">
+					<!-- PROJECT DELETION -->
+					<p class="project-deletion-text hide">
+						Are you sure?<br /><br />
+						Project <span class="project-deletion-title"></span> will be gone
+						forever!
+					</p>
+
+					<!-- TASK DELETION -->
+					<p class="task-deletion-text hide">
+						Are you sure?<br /><br />
+						Task <span class="task-deletion-title"></span> will be gone forever!
+					</p>
+
+					<!-- TASK INFO CONTENT -->
+					<div class="info-div hide">
+						<!-- TITLE -->
+						<div class="task-title-div">
+							<p class="info-title padding-right">Title:</p>
+							<p class="info-task-title"></p>
+						</div>
+
+						<!-- DESCRIPTION -->
+						<div class="task-description-div">
+							<p class="info-description padding-right">Description:</p>
+							<p class="info-task-description"></p>
+						</div>
+
+						<!-- DUE DATE -->
+						<div class="task-due-date-div">
+							<p class="info-due-date padding-right">Due date:</p>
+							<p class="info-task-due-date"></p>
+						</div>
+
+						<!-- PRIORITY -->
+						<div class="task-priority-div">
+							<p class="info-priority padding-right">Priority:</p>
+							<p class="info-task-priority"></p>
+						</div>
+
+						<!-- PROJECT -->
+						<div class="task-project-div">
+							<p class="info-project padding-right">Project:</p>
+							<p class="info-task-project"></p>
+						</div>
+					</div>
+
+					<form name="form" method="POST">
+						<!-- MODAL TITLE INPUT -->
+						<div>
+							<label id="modal-title-input-label" for="modal-title-input"
+								>Title<span class="title-star">*</span></label
+							>
+							<input
+								type="text"
+								id="modal-title-input"
+								name="modal-title-input"
+								autocomplete="off"
+							/>
+							<p class="modal-title-error hide">Please fill out this field.</p>
+						</div>
+
+						<!-- MODAL CONTENT FOR A TASK -->
+						<div class="modal-tasks-div hide">
+							<!-- TASK DESCRIPTION -->
+							<div class="task-description-area">
+								<label for="task-description">Description</label>
+								<textarea
+									class="task-description"
+									rows="3"
+									cols="36"
+								></textarea>
+							</div>
+
+							<!-- TASK DUE DATE -->
+							<div class="task-due-date">
+								<label for="dueDate">Due Date</label>
+								<input type="date" id="dueDate" name="dueDate" />
+							</div>
+
+							<!-- TASK PRIORITY -->
+							<div>
+								<label for="priority">Priority</label>
+								<select class="task-priority" name="priority">
+									<option value="" disabled selected>
+										How important is this task?
+									</option>
+									<option value="low">Not important at all...</option>
+									<option value="medium">Somewhat important</option>
+									<option value="high">Extremely important!</option>
+								</select>
+							</div>
+						</div>
+					</form>
+
+					<!-- MODAL BUTTONS -->
+					<div class="modal-buttons">
+						<button type="button" class="cancel-modal close">Cancel</button>
+						<button
+							type="button"
+							class="modal-task-button confirm-modal"
+						></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
