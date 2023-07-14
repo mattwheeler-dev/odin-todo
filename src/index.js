@@ -10,6 +10,4 @@ dom.showProjects();
 // WHEN PAGE IS LOADED - SHOW ALL TASKS FROM ALL DEFAULT PROJECTS
 dom.getTasks("all");
 
-dom.responsiveMenu();
-handlers.resizeWindow();
 handlers.listenClicks();

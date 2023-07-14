@@ -7,6 +7,8 @@
 	--border: 2px solid var(--primary);
 	--shadow: 0 0 0.75rem #000;
 	--glow: 0 0 1rem var(--primary);
+	--box-padding: 2rem 1rem;
+	--btn-padding: 0.5rem 0.75rem;
 }
 
 /* DEFAULTS */
@@ -17,278 +19,313 @@
 	font-family: "Raleway", Arial, Helvetica, sans-serif;
 }
 
-/* DISPLAY: FLEX */
+/* HIDE & SHOW FOR MODAL PIECES  */
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+/* ALL DISPLAY: FLEX */
 body,
+nav,
+#nav-projects,
+.menu-link,
+.project-link,
 main,
-section,
-#projects-list,
-.project-btn,
-#todo-list,
-.todo-btn {
+#tasks-container,
+.task,
+.task-name,
+.task-icons,
+#modal-header {
 	display: flex;
 }
 
-/* DISPLAY: GRID */
-header,
-#menu-toggle {
-	display: grid;
-	place-content: center;
-}
-
-body {
-	height: fit-content;
-	width: 100vw;
-	color: #fff;
-	background-color: #303030;
-	overflow-x: hidden;
+/* ALL FLEX-DIR: COLUMN */
+nav,
+#nav-projects,
+main,
+#tasks-container {
 	flex-direction: column;
 	align-items: center;
 }
 
-/* BUTTONS */
-button {
-	cursor: pointer;
-	height: fit-content;
-	width: fit-content;
-}
-
-/* MENU TOGGLE */
-#menu-toggle {
-	padding: 0.25rem;
-	font-size: 1.25rem;
-	color: var(--primary);
-	background-color: transparent;
-	border: var(--border);
-	border-radius: 5px;
-	position: fixed;
-	top: 0.8rem;
-	left: 2rem;
-	display: none;
+/* ALL TRANSITION (ALL 0.2S LINEAR) */
+.nav-open,
+.nav-close,
+nav,
+.add-project-btn,
+.add-task-btn,
+#modal,
+.close-modal {
 	transition: all 0.2s linear;
 }
 
-/* HEADER */
-header {
-	height: auto;
-	width: 100%;
-	padding: 1rem;
-	border-bottom: var(--border);
-	box-shadow: var(--shadow);
-}
-
-/* MAIN & SECTIONS */
-main {
-	width: 100%;
-	justify-content: space-between;
-}
-
-section {
-	height: fit-content;
-	min-height: 100vh;
-	flex-direction: column;
+body {
+	color: #fff;
+	background-color: #151515;
+	flex-wrap: wrap;
 }
 
 h2 {
 	width: 100%;
+	color: var(--primary);
 	text-align: center;
-	margin: 2rem 0;
 }
 
-/* PROJECTS & TODOS SHARED STYLES */
-.project-btn,
-.todo-btn {
+/* HEADER */
+header {
+	height: 4rem;
+	width: 100%;
+	border-bottom: var(--border);
+	display: grid;
+	place-items: center;
+}
+
+/* NAV OPEN / CLOSE BTNS (DISPLAY NONE FOR SCREENS > 800PX) */
+.nav-open,
+.nav-close {
+	cursor: pointer;
+	height: 2rem;
+	width: 2rem;
+	color: var(--primary);
+	border: var(--border);
+	border-radius: 5px;
+	box-shadow: var(--shadow);
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	place-content: center;
+	display: none;
+}
+
+.nav-open:hover,
+.nav-close:hover {
+	color: #000;
+	background-color: var(--primary);
+	box-shadow: var(--glow);
+	scale: 1.25;
+}
+
+.nav-open:active,
+.nav-close:active {
+	scale: 1.1;
+}
+
+/* NAV / SIDEBAR */
+nav {
+	height: fit-content;
+	min-height: 100vh;
+	width: 30%;
+}
+
+/* NAV MENU LINKS */
+#menu-links {
 	height: fit-content;
 	width: 100%;
-	padding: 0.25rem 1rem;
-	margin: 1rem auto;
-	font-size: 1rem;
-	color: #fff;
-	background-color: transparent;
-	border: none;
+	padding: var(--box-padding);
 	border-bottom: var(--border);
+}
+
+.menu-link,
+.project-link,
+.task i {
+	cursor: pointer;
+	color: #fff;
+	padding: 1rem 0rem;
+	text-decoration: none;
+}
+
+.menu-link i,
+.project-link i {
+	margin-right: 0.5rem;
+}
+
+.menu-link:hover,
+.project-link:hover,
+.edit-project:hover,
+.delete-project:hover,
+.task i:hover {
+	color: var(--primary);
+}
+
+.active-link {
+	font-size: 1.25rem;
+	color: var(--primary);
+}
+
+/* NAV PROJECTS LIST */
+#nav-projects {
+	height: fit-content;
+	width: 100%;
+	padding: var(--box-padding);
+}
+
+#projects-links {
+	width: 100%;
+}
+
+.project-link {
 	justify-content: space-between;
 }
 
-#add-project-btn,
-#confirm-add-project,
-#cancel-add-project,
-#add-todo-btn,
-#confirm-add-todo,
-#cancel-add-todo {
-	height: 2rem;
+.add-project-btn,
+.add-task-btn {
+	cursor: pointer;
+	height: fit-content;
 	width: fit-content;
-	margin: 2.5rem auto;
-	padding: 0 1rem;
+	margin-top: 1rem;
+	padding: var(--btn-padding);
 	color: var(--primary);
 	background-color: transparent;
 	border: var(--border);
 	border-radius: 8px;
 	box-shadow: var(--shadow);
-	transition: all 0.2s linear;
 }
 
-#confirm-add-project,
-#cancel-add-project,
-#confirm-add-todo,
-#cancel-add-todo {
-	width: 40%;
-	margin-top: 1rem;
-}
-
-#menu-toggle:hover,
-#add-project-btn:hover,
-#confirm-add-project:hover,
-#cancel-add-project:hover,
-#add-todo-btn:hover,
-#confirm-add-todo:hover,
-#cancel-add-todo:hover {
+.add-project-btn:hover,
+.add-task-btn:hover {
 	color: #000;
 	background-color: var(--primary);
 	box-shadow: var(--glow);
 	scale: 1.1;
 }
 
-#menu-toggle:active,
-#add-project-btn:active,
-#confirm-add-project:active,
-#cancel-add-project:active,
-#add-todo-btn:active,
-#confirm-add-todo:active,
-#cancel-add-todo:active {
-	scale: 0.9;
-}
-
-#add-project-btn.active,
-#add-todo-btn.active {
-	background-color: #000;
-}
-
-/* PROJECTS SECTION */
-#projects-container {
-	width: 40%;
-}
-
-#projects-list {
-	width: 70%;
-	margin: 0 auto;
-	flex-direction: column;
-}
-
-#default-project {
-	width: 70%;
-}
-
-.project-btn.active {
-	font-size: 1.25rem;
-	color: var(--primary);
-}
-
-/* NEW PROJECT POPUP */
-#add-project-popup,
-#add-todo-popup {
-	display: none;
+/* MAIN / LIST DISPLAY */
+main {
 	height: fit-content;
-	width: 80%;
-	margin: 0 auto;
+	min-height: 100vh;
+	width: 70%;
+	padding: var(--box-padding);
+	background-color: #303030;
+	border-left: var(--border);
 }
 
-#add-project-popup.active,
-#add-todo-popup.active {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-}
-
-#new-project-name,
-#new-todo-name {
+#tasks-container {
 	height: fit-content;
-	width: 100%;
-	padding: 0.75rem 1rem;
-	font-size: 1rem;
-	color: var(--primary);
-	background-color: transparent;
+	min-height: 15rem;
+	width: 85%;
+	margin-top: 2rem;
+	padding: var(--box-padding);
 	border: var(--border);
 	border-radius: 10px;
 	box-shadow: var(--shadow);
 }
 
-#new-project-name::placeholder {
-	color: var(--primary);
+.tasks-list {
+	height: fit-content;
+	width: 90%;
 }
 
-#new-project-name:focus,
-#new-todo-name:focus {
-	background-color: #000;
-	box-shadow: var(--glow);
-	outline: var(--border);
-}
-
-/* TODOS SECTION */
-#list-display {
-	width: 80%;
-	background-color: #505050;
-	border-left: var(--border);
+.task {
+	height: fit-content;
+	width: 90%;
+	margin: 1.5rem auto;
+	padding-bottom: 0.25rem;
+	border-bottom: var(--border);
 	flex-direction: column;
+}
+
+.task-name {
+	margin-bottom: 1rem;
 	align-items: center;
 }
 
-#todo-list {
-	height: fit-content;
-	min-height: 15rem;
-	width: 80%;
-	margin: 0 auto;
-	padding: 1rem 2rem;
-	border: var(--border);
-	border-radius: 15px;
-	box-shadow: var(--shadow);
-	list-style-type: none;
-	flex-direction: column;
+.task-text {
+	margin-left: 1rem;
+}
+
+.task-icons {
 	justify-content: space-evenly;
 }
 
-.todo-btn i:hover {
-	cursor: pointer;
-	color: var(--primary);
-	text-shadow: var(--glow);
-}
-
-.todo-btn.complete span {
+.complete {
 	text-decoration: line-through;
 	text-decoration-color: var(--primary);
-	text-decoration-thickness: 3px;
+	text-decoration-thickness: 2px;
 }
 
-.todo-btn.complete .fa-circle {
+/* MODAL */
+#modal-container {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: rgba(100, 100, 100, 0.7);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 2;
+}
+
+.modal {
+	height: fit-content;
+	max-height: 70%;
+	width: fit-content;
+	max-width: 70%;
+	margin: 10% auto;
+	padding: 2rem;
+	background-color: #151515;
+	border: var(--border);
+	border-radius: 10px;
+	box-shadow: var(--shadow);
+}
+
+#modal-header {
+	width: 100%;
+	margin-bottom: 1rem;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.close-modal {
+	cursor: pointer;
+	height: 2rem;
+	width: 2rem;
+	display: grid;
+	place-items: center;
+}
+
+.close-modal:hover {
 	color: var(--primary);
-	background-color: var(--primary);
-	border-radius: 50%;
+	text-shadow: var(--glow);
+	scale: 1.1;
 }
 
 /* MEDIA QUERIES */
+/* SHOW MENU TOGGLE & HIDE SIDEBAR @ <= 800PX */
 @media (max-width: 800px) {
-	#menu-toggle {
-		display: block;
+	.nav-open {
+		display: grid;
+		z-index: 9;
 	}
 
-	main {
-		flex-direction: column;
-	}
-
-	#projects-container {
+	.nav-open.hide {
 		display: none;
 	}
 
-	#projects-container.active {
-		width: 100%;
-		height: fit-content;
-		padding-bottom: 1rem;
-		border-bottom: var(--border);
-		border-right: none;
-		display: flex;
+	nav {
+		width: 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+		overflow-x: hidden;
+		z-index: 8;
 	}
 
-	#list-display {
+	nav.active {
+		width: 70%;
+		background-color: #151515;
+		border-right: var(--border);
+	}
+
+	nav.active .nav-close {
+		display: grid;
+	}
+
+	main {
 		width: 100%;
+		border-left: none;
 	}
 }
