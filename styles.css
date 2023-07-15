@@ -39,7 +39,13 @@ main,
 .task,
 .task-name,
 .task-icons,
-#modal-header {
+#modal-header,
+form,
+form:first-child,
+.task-description-area,
+.task-due-date,
+.info-div div,
+.modal-buttons {
 	display: flex;
 }
 
@@ -47,7 +53,8 @@ main,
 nav,
 #nav-projects,
 main,
-#tasks-container {
+#tasks-container,
+form {
 	flex-direction: column;
 	align-items: center;
 }
@@ -59,6 +66,8 @@ nav,
 .add-project-btn,
 .add-task-btn,
 #modal,
+.cancel-modal,
+.confirm-modal,
 .close-modal {
 	transition: all 0.2s linear;
 }
@@ -172,7 +181,9 @@ nav {
 }
 
 .add-project-btn,
-.add-task-btn {
+.add-task-btn,
+.cancel-modal,
+.confirm-modal {
 	cursor: pointer;
 	height: fit-content;
 	width: fit-content;
@@ -186,7 +197,9 @@ nav {
 }
 
 .add-project-btn:hover,
-.add-task-btn:hover {
+.add-task-btn:hover,
+.cancel-modal:hover,
+.confirm-modal:hover {
 	color: #000;
 	background-color: var(--primary);
 	box-shadow: var(--glow);
@@ -277,6 +290,41 @@ main {
 	margin-bottom: 1rem;
 	align-items: center;
 	justify-content: space-between;
+}
+
+form div:first-of-type,
+.task-description-area,
+.task-due-date,
+.modal-tasks-div div:last-of-type,
+.info-div div {
+	height: fit-content;
+	width: 100%;
+	margin: 1rem 0;
+	justify-content: space-between;
+}
+
+input,
+textarea,
+select {
+	padding: var(--btn-padding);
+	color: var(--primary);
+	background-color: #000;
+	border: var(--border);
+	border-radius: 5px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: var(--border);
+}
+
+.info-div {
+	width: 40vw;
+}
+
+.modal-buttons {
+	justify-content: space-evenly;
 }
 
 .close-modal {
